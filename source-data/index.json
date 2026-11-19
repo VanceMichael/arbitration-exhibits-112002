@@ -1,0 +1,23 @@
+{
+  "sources": [
+    "carriers",
+    "depot",
+    "service"
+  ],
+  "stages": 4,
+  "originals": [
+    "handoff.txt",
+    "handoff-a.txt",
+    "handoff-b.txt",
+    "clear.txt"
+  ],
+  "originalStages": {
+    "clear.txt": 3
+  },
+  "digests": {
+    "handoff.txt": "12d5425c51c66635ac00ec872b8a83ed53b1a3363d577ae8c1670a1be8e4e75c",
+    "handoff-a.txt": "9963b32f398149d660e08078e1467d8ba2c36c412bf70dcb8b97281eb12d8d82",
+    "handoff-b.txt": "405c0c26e8ed30198eea6aaa74a3075fb2936278dd5cb56c61e2907615a20683",
+    "clear.txt": "df483ed24ef0579b491cb89a43238216a282f258899dcb1e08704fc51821d41f"
+  }
+}

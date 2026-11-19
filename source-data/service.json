@@ -1,0 +1,42 @@
+[
+  {
+    "record": "service-1",
+    "availableFrom": 2,
+    "kind": "served",
+    "payload": {
+      "case": "A11",
+      "party": "甲方",
+      "declaration": "DEC79",
+      "content": "12d5425c51c66635ac00ec872b8a83ed53b1a3363d577ae8c1670a1be8e4e75c",
+      "receipt": "R13"
+    }
+  },
+  {
+    "record": "service-2",
+    "availableFrom": 2,
+    "kind": "sealed",
+    "payload": {
+      "case": "A11",
+      "volume": "VL1",
+      "time": "14:30",
+      "known": [
+        "R13"
+      ],
+      "outstanding": [
+        "乙方/DEC79"
+      ]
+    }
+  },
+  {
+    "record": "service-3",
+    "availableFrom": 4,
+    "kind": "served",
+    "payload": {
+      "case": "A11",
+      "party": "乙方",
+      "declaration": "DEC79",
+      "content": "12d5425c51c66635ac00ec872b8a83ed53b1a3363d577ae8c1670a1be8e4e75c",
+      "receipt": "R14"
+    }
+  }
+]

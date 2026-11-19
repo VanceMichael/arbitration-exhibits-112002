@@ -1,0 +1,61 @@
+[
+  {
+    "record": "carriers-1",
+    "availableFrom": 1,
+    "kind": "manifest",
+    "payload": {
+      "case": "A11",
+      "leg": "RAIL",
+      "declaration": "DEC79",
+      "content": "12d5425c51c66635ac00ec872b8a83ed53b1a3363d577ae8c1670a1be8e4e75c",
+      "parties": [
+        "甲方",
+        "乙方"
+      ]
+    }
+  },
+  {
+    "record": "carriers-2",
+    "availableFrom": 1,
+    "kind": "manifest",
+    "payload": {
+      "case": "A11",
+      "leg": "ROAD",
+      "declaration": "DEC81",
+      "content": "12d5425c51c66635ac00ec872b8a83ed53b1a3363d577ae8c1670a1be8e4e75c",
+      "parties": [
+        "甲方"
+      ]
+    }
+  },
+  {
+    "record": "carriers-3",
+    "availableFrom": 1,
+    "kind": "manifest",
+    "payload": {
+      "case": "A12",
+      "leg": "PORT",
+      "declaration": "DEC18",
+      "content": "12d5425c51c66635ac00ec872b8a83ed53b1a3363d577ae8c1670a1be8e4e75c",
+      "parties": [
+        "丙方"
+      ]
+    }
+  },
+  {
+    "record": "carriers-4",
+    "availableFrom": 3,
+    "kind": "manifest",
+    "payload": {
+      "case": "A11",
+      "leg": "RAIL",
+      "declaration": "DEC79-R2",
+      "replaces": "DEC79",
+      "content": "df483ed24ef0579b491cb89a43238216a282f258899dcb1e08704fc51821d41f",
+      "parties": [
+        "甲方",
+        "乙方"
+      ]
+    }
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "record": "depot-1",
+    "availableFrom": 1,
+    "kind": "pickup",
+    "payload": {
+      "entrance": "V51",
+      "case": "A11",
+      "declaration": "DEC79",
+      "pieces": [
+        "handoff-a.txt",
+        "handoff-b.txt"
+      ],
+      "currentUntil": "15:20"
+    }
+  },
+  {
+    "record": "depot-2",
+    "availableFrom": 1,
+    "kind": "pickup",
+    "payload": {
+      "entrance": "V52",
+      "case": "A12",
+      "declaration": "DEC18",
+      "pieces": [
+        "handoff.txt"
+      ],
+      "currentUntil": "17:00"
+    }
+  },
+  {
+    "record": "depot-3",
+    "availableFrom": 3,
+    "kind": "pickup",
+    "payload": {
+      "entrance": "V55",
+      "case": "A11",
+      "declaration": "DEC79-R2",
+      "pieces": [
+        "clear.txt"
+      ],
+      "currentUntil": "17:00"
+    }
+  },
+  {
+    "record": "depot-4",
+    "availableFrom": 4,
+    "kind": "withdraw",
+    "payload": {
+      "entrance": "V51",
+      "time": "14:55"
+    }
+  }
+]

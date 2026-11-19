@@ -39,18 +39,26 @@ test('资料在指定回放阶段从来源完整分页返回', async (t) => {
       assert.deepEqual(collected, expectedRecords.get(name).filter((entry) => entry.availableFrom <= stage));
     }
     for (const name of index.originals) {
-      const response = await fetch(`${url}/original/${name}`);
+      const grants = (await read('depot')).filter((entry) => entry.availableFrom <= stage &&
+        entry.kind === 'pickup' && entry.payload.pieces.includes(name));
+      const grant = grants[0]?.payload;
+      const params = grant ? new URLSearchParams({ entrance: grant.entrance, case: grant.case, at: '14:40' }) : '';
+      const address = `${url}/original/${name}`;
+      assert.equal((await fetch(address)).status, 403);
+      const response = await fetch(address + '?' + params);
       if (stage >= (index.originalStages[name] ?? 1)) {
         assert.equal(response.status, 200);
         const bytes = await response.arrayBuffer();
         assert.equal(createHash('sha256').update(Buffer.from(bytes)).digest('hex'), index.digests[name]);
       } else {
-        assert.equal(response.status, 404);
+        assert.equal(response.status, 403);
       }
     }
   }
   assert.equal((await fetch(`${url}/control?stage=0`, { method: 'POST' })).status, 400);
   assert.equal((await fetch(`${url}/source/${index.sources[0]}?limit=0`)).status, 400);
   assert.equal((await fetch(`${url}/source/missing`)).status, 404);
+  assert.equal((await fetch(`${url}/original/handoff-a.txt?entrance=V51&case=A11&at=14:55`)).status, 403);
+  assert.equal((await fetch(`${url}/original/handoff.txt?entrance=V52&case=A12&at=14:55`)).status, 200);
   t.diagnostic(`${index.sources.length} 处来源、${index.stages} 个阶段、${index.originals.length} 份原件`);
 });

@@ -59,6 +59,17 @@ export async function start({ port = 0, host = '127.0.0.1', portal } = {}) {
       }
       const asset = /^\/original\/([a-zA-Z0-9_.-]+)$/.exec(url.pathname);
       if (asset && index.originals.includes(asset[1])) {
+        const entrance = url.searchParams.get('entrance');
+        const docket = url.searchParams.get('case');
+        const at = url.searchParams.get('at');
+        const active = sources.get('depot').filter((entry) => entry.availableFrom <= stage && entry.payload.entrance === entrance);
+        const grant = active.findLast((entry) => entry.kind === 'pickup')?.payload;
+        const revoked = active.some((entry) => entry.kind === 'withdraw' && entry.payload.time <= at);
+        if (!grant || grant.case !== docket || !grant.pieces.includes(asset[1]) ||
+            !/^\d{2}:\d{2}$/.test(at ?? '') || at >= grant.currentUntil || revoked) {
+          sendJson(response, 403, { error: '此案卷和取件号在该时刻不能取得此原件' });
+          return;
+        }
         const available = index.originalStages[asset[1]] ?? 1;
         if (stage < available) {
           sendJson(response, 404, { error: '本轮暂未提供此原件' });

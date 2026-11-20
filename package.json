@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node source-server.mjs",
+    "arb": "node arb.mjs",
     "test": "node --test *.test.mjs"
   }
 }
